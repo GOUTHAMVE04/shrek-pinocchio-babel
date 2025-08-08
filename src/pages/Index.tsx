@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import ControlsPanel from "@/components/ControlsPanel";
 import ChatPanel, { type Message } from "@/components/ChatPanel";
 import StatusBar from "@/components/StatusBar";
+import PinocchioAvatar from "@/components/PinocchioAvatar";
 import { applyPinocchioConfusion, type ConfusionLevel } from "@/utils/pinocchio";
 import { detectLang, translate, type LanguageMode } from "@/utils/translate";
 import { canRecognizeSpeech, speak, startRecognition } from "@/utils/speech";
@@ -30,6 +31,7 @@ const Index = () => {
   const [micActive, setMicActive] = useState(false);
   const stopRef = useRef<null | (() => void)>(null);
   const lastResponseRef = useRef("");
+  const [liveReply, setLiveReply] = useState("");
 
   const addMsg = (m: Omit<Message, "id" | "ts">) =>
     setMessages((prev) => [...prev, { ...m, id: crypto.randomUUID(), ts: Date.now() }]);
@@ -71,24 +73,31 @@ const Index = () => {
       toast({ title: "Speech recognition not supported", description: "Try Chrome on desktop." });
       return;
     }
-    setStatus("Listening…");
-    setMicActive(true);
-    stopRef.current = startRecognition({
-      lang: languageMode === "auto" ? undefined : (languageMode as any),
-      onResult: (t) => {
-        setMicActive(false);
-        setStatus("Transcribing done");
-        processText(t);
-      },
-      onEnd: () => {
-        setMicActive(false);
-        setStatus("Mic idle");
-      },
-      onError: () => {
-        setMicActive(false);
-        setStatus("Mic error");
-      },
-    });
+  setStatus("Listening…");
+  setMicActive(true);
+  stopRef.current = startRecognition({
+    lang: languageMode === "auto" ? undefined : (languageMode as any),
+    onInterim: (t) => {
+      // Lightweight live preview without translation for responsiveness
+      setLiveReply(applyPinocchioConfusion(t, confusion));
+    },
+    onResult: (t) => {
+      setMicActive(false);
+      setStatus("Transcribing done");
+      setLiveReply("");
+      processText(t);
+    },
+    onEnd: () => {
+      setMicActive(false);
+      setStatus("Mic idle");
+      setLiveReply("");
+    },
+    onError: () => {
+      setMicActive(false);
+      setStatus("Mic error");
+      setLiveReply("");
+    },
+  });
   };
 
   const onSpeak = () => {
@@ -132,7 +141,10 @@ const Index = () => {
         onSave={onSave}
         micActive={micActive}
       />
-      <ChatPanel messages={messages} onSend={processText} disabledUpload={true} />
+      <div className="container mx-auto px-4 mt-4">
+        <PinocchioAvatar />
+      </div>
+      <ChatPanel messages={messages} onSend={processText} disabledUpload={true} liveReply={liveReply} />
       <StatusBar status={status} />
 
       <section id="how-it-works" className="container mx-auto px-4 mt-10 mb-16">

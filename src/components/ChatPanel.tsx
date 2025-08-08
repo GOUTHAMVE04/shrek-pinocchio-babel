@@ -16,9 +16,10 @@ export interface ChatPanelProps {
   messages: Message[];
   onSend: (text: string) => void;
   disabledUpload?: boolean;
+  liveReply?: string;
 }
 
-const ChatPanel = ({ messages, onSend, disabledUpload }: ChatPanelProps) => {
+const ChatPanel = ({ messages, onSend, disabledUpload, liveReply }: ChatPanelProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const doSend = () => {
@@ -78,6 +79,14 @@ const ChatPanel = ({ messages, onSend, disabledUpload }: ChatPanelProps) => {
                   </div>
                 </div>
               ))}
+              {liveReply && (
+                <div className="flex justify-start">
+                  <div className="rounded-2xl px-4 py-3 max-w-[80%] shadow-sm animate-fade-in bg-accent text-accent-foreground">
+                    <div className="text-sm whitespace-pre-wrap leading-relaxed">{liveReply}</div>
+                    <div className="mt-1 text-[10px] opacity-70">live</div>
+                  </div>
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
