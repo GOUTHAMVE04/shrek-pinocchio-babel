@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
+Project Name
+🎯 pinocchio_protocol
 
-## Project info
+Basic Details
+Team Name: The Evasive Engineers
+Team Members
+Team Lead: GOUTHAM V E - NSS COLLEGE OF ENGINEERING
 
-**URL**: https://lovable.dev/projects/3fd008ac-fe8e-4caf-9200-99823378536c
+Member 2: RAJATH RAJ K T - NSS COLLEGE OF ENGINEERING
 
-## How can I edit this code?
+Project Description
+This project is a satirical, AI-powered tool that transforms simple sentences into convoluted and comically evasive statements. It’s a machine built to say absolutely nothing, but in the most truthful and technically complex way possible.
 
-There are several ways of editing your application.
+The Problem (that doesn't exist)
+In a world plagued by direct communication and clear answers, there is a severe shortage of tools for saying nothing at all. We believe the ability to be completely unhelpful while technically being honest is a crucial skill for the modern era.
 
-**Use Lovable**
+The Solution (nobody asked for)
+We've engineered a sophisticated "Confusion Engine" that takes any straightforward input and rewrites it using double negatives, circular logic, and bureaucratic filler. It allows you to speak the truth, without ever being helpful. The nose-growing animation and an AI-generated robot voice are, of course, critical features.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3fd008ac-fe8e-4caf-9200-99823378536c) and start prompting.
+Technical Details
+Technologies/Components Used
+For Software:
 
-Changes made via Lovable will be committed automatically to this repo.
+Languages used: TypeScript, JavaScript
 
-**Use your preferred IDE**
+Frameworks used: Next.js (Frontend), Node.js (Backend), Genkit (AI Flows)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Libraries used: Gemini-2.5-flash-preview-tts (AI Model)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Tools used: Git, GitHub, Firebase, Google Cloud Platform (GCP)
 
-Follow these steps:
+For Hardware:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+List main components: None. This is a purely software project.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Implementation
+For Software:
 
-# Step 3: Install the necessary dependencies.
-npm i
+Installation
+# Clone the repository
+git clone [repository_link]
+cd pinocchio_protocol
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Install frontend dependencies
+npm install
+
+# Install backend dependencies
+cd genkit-ai-flow
+npm install
+Run
+# Start the backend server
+cd genkit-ai-flow
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+# Start the frontend development server
+cd ..
+npm run dev
+Project Documentation
+For Software:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Screenshots (Add at least 3)
+![Screenshot 1](Add screenshot 1 here with proper name)
+The main interface, where users can input a clear statement and choose their preferred style of obfuscation.
 
-**Use GitHub Codespaces**
+![Screenshot 2](Add screenshot 2 here with proper name)
+Our glorious output page, where the Pinocchio Protocol does its work. Notice the nose growing in real-time.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+![Screenshot 3](Add screenshot 3 here with proper name)
+The hallowed Hall of Fame, showcasing the most beautifully useless statements submitted by our users.
 
-## What technologies are used for this project?
+Diagrams
+This diagram shows the user typing a sentence into the Next.js frontend, which triggers a Node.js server to run a Genkit flow. The Genkit flow calls the Gemini-2.5-flash-preview-tts model, gets the text-to-speech output, and sends it back to the frontend to be played for the user.
 
-This project is built with:
+Project Demo
+Video
+[Add your demo video link here]
+This video demonstrates a user entering a simple sentence and shows the full process: the generation of the confusing text, the Pinocchio nose animation, and the playback of the AI-generated robot voice. We also showcase the various styles of obfuscation available.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Additional Demos
+[Add any extra demo materials/links]
 
-## How can I deploy this project?
+Team Contributions
+GOUTHAM V E: Developed the Next.js frontend, including the styling with Tailwind CSS and all the animations, such as the crucial Pinocchio nose.
 
-Simply open [Lovable](https://lovable.dev/projects/3fd008ac-fe8e-4caf-9200-99823378536c) and click on Share -> Publish.
+RAJATH RAJ K T: Built the Node.js backend using Genkit to manage the AI flows and integrated the Gemini text-to-speech model. Handled the project deployment to Google Cloud App Hosting.
 
-## Can I connect a custom domain to my Lovable project?
+Made with ❤️ at TinkerHub Useless Projects
 
-Yes, you can!
+How to Add Images
+To add images to a Markdown file, you use the following syntax:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Markdown
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+![Alt Text](path/to/your/image.jpg)
+![Alt Text]: This is the "alt text" or "alternative text" for the image. It's a short description that will be displayed if the image fails to load. It's also read by screen readers for accessibility.
+
+(path/to/your/image.jpg): This is the file path or URL to your image. This can be a local file path (e.g., images/my_screenshot.png) or a link to an image hosted on the web (e.g., https://example.com/images/screenshot1.jpg).
+
+In your case, you've already provided a file named diagram-export-09-08-2025-06_37_05.jpg. To include it in your Markdown, you simply replace the placeholder in the diagram section with the filename, as I have done above:
+
+Markdown
+
+![Workflow](diagram-export-09-08-2025-06_37_05.jpg)
+For the screenshots, you will need to replace the placeholders Add screenshot 1 here with proper name etc., with the actual filenames or URLs of your screenshot images. For example:
+
+Markdown
+
+![Screenshot 1](homepage_interface.png)
